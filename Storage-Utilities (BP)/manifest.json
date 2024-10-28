@@ -1,0 +1,31 @@
+{
+    "format_version": 2,
+    "header": {
+        "description": "An Canopy exstension  amied an storage tech",
+        "name": "Storage Utilities",
+        "uuid": "449dcd3f-e0a3-4217-9b0a-5b213f6b6cdd",
+        "version": [0, 0, 1]
+    },
+    "modules": [
+        {
+            "description": "Behavior Pack Module",
+            "type": "data",
+            "uuid": "ec4d34c5-4b79-4e22-aef1-898a039b2e81",
+            "version": [1, 0, 0]
+        },
+        {
+            "description": "Gametest Module",
+            "type": "script",
+            "language": "javascript",
+            "entry": "scripts/main.js",
+            "uuid": "c775d99b-302a-44ad-8f57-9a7e660c270b",
+            "version": [1, 0, 0]
+        }
+    ],
+    "dependencies": [
+        {
+            "module_name": "@minecraft/server",
+            "version": "1.16.0-beta"
+        }
+    ]
+    }
