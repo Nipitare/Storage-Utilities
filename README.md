@@ -1,2 +1,2 @@
 # Storage Utilities
- too lazty to write
+An [Canopy](https://github.com/ForestOfLight/Canopy) extension aimed at storage tech.
