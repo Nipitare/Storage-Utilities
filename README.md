@@ -8,4 +8,4 @@ Storage Utilities is an addon aimed to improve the process of making a system re
 
 2. [Storage Utilities Discord server](https://discord.gg/fA2E4xK28n)
 
-3. [Storage Utilities Wiki](https://github.com/Nipitare/Storage-Utilities/wili)
+3. [Storage Utilities Wiki](https://github.com/Nipitare/Storage-Utilities/wiki)
