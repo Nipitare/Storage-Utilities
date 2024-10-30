@@ -70,7 +70,7 @@ const ItemSetStructures = {
           mc.world.structureManager.place(ItemSetStructures[itemsetname], player.dimension, {x: x+1 ,y: y, z: z+1} )
           sender.sendMessage(`§aLoaded item set ${itemsetname}`) 
         }
-        else sender.sendMessage(`§c${itemsetname} is not an valid item set`)
+        else sender.sendMessage(`§c${itemsetname} is not an valid item set. Please try again`)
     }
 extension.addCommand(SSCommand);
 
@@ -204,3 +204,6 @@ if (ValidContainer === true && value <= MaxSS[container]) {
 }
 else sender.sendMessage('§cSS/continer is not valid. Please try again')
 }
+
+
+
