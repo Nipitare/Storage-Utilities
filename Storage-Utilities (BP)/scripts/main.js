@@ -13,9 +13,9 @@ extension.addRule(StorageUtilities)
 
 
 const ItemSetCommand = new Command({
-    name: 'itemSet', // The name of the command
+    name: 'itemset', // The name of the command
     description: 'Load structure file of a certain item set.', // Shows up in the help command. Can be a string or RawMessage type.
-    usage: 'itemSet [name]', // The usage of the command that shows up in the help command & when used incorrectly
+    usage: 'itemset [name]', // The usage of the command that shows up in the help command & when used incorrectly
     callback: ItemSetCommandCallback, // The function to run when the command is executed
     // Optional:
     args: [
@@ -24,12 +24,12 @@ const ItemSetCommand = new Command({
     contingentRules: ['StorageUtilities'], // Rules that must be true for the command to be enabled
     adminOnly: false, // Whether the command can only be run by admins (users with the 'CanopyAdmin' tag)
     helpEntries: [ // Additional help entries that show up in the help command
-     { usage: `itemSet casual`, description: `Loads casual item set` }, // Description can be a string or RawMessage type.
-     { usage: `itemSet TMC`, description: `Loads TMC item set` },
-     { usage: `itemSet mixed`, description: `Loads mixed item set` },
-     { usage: `itemSet split`, description: `Loads split item set` },
-     { usage: `itemSet nonstackable`, description: `Loads nonstackable item set` },
-     { usage: `itemSet bulk`, description: `Loads bulk item set` },
+     { usage: `itemset casual`, description: `Loads casual item set` }, // Description can be a string or RawMessage type.
+     { usage: `itemset TMC`, description: `Loads TMC item set` },
+     { usage: `itemset mixed`, description: `Loads mixed item set` },
+     { usage: `itemset split`, description: `Loads split item set` },
+     { usage: `itemset nonstackable`, description: `Loads nonstackable item set` },
+     { usage: `itemset bulk`, description: `Loads bulk item set` },
     ],
     helpHidden: false // Whether the command should be hidden from the help command.
 });
@@ -51,11 +51,27 @@ const SSCommand = new Command({
     ],
     helpHidden: false // Whether the command should be hidden from the help command.
 });
+extension.addCommand(SSCommand);
+
+const UtilityItemsCommand = new Command({
+    name: 'utilityitems', // The name of the command
+    description: 'Load utility items structure.', // Shows up in the help command. Can be a string or RawMessage type.
+    usage: 'utilityitems', // The usage of the command that shows up in the help command & when used incorrectly
+    callback: UtilityItemsCommandCallback, // The function to run when the command is executed
+    // Optional:
+    args: [
+    ],
+    contingentRules: ['StorageUtilities'], // Rules that must be true for the command to be enabled
+    adminOnly: false, // Whether the command can only be run by admins (users with the 'CanopyAdmin' tag)
+    helpEntries: [ // Additional help entries that show up in the help command
+    ],
+    helpHidden: false // Whether the command should be hidden from the help command.
+});
+extension.addCommand(UtilityItemsCommand);
 
 function ItemSetCommandCallback(sender, args) {
     let { itemsetname } = args;
-    let player = mc.world.getPlayers()[0];
-    let {x, y, z} = player.location
+    let {x, y, z} = sender.location
 const ItemSetNames = new Set(['casual', 'tmc', 'mixed', 'split', 'nonstackable', 'bulk'])
 const IsValidItemSet = ItemSetNames.has(itemsetname)
 const ItemSetStructures = {
@@ -67,12 +83,11 @@ const ItemSetStructures = {
     bulk:''
 }
                 if (IsValidItemSet === true) {
-          mc.world.structureManager.place(ItemSetStructures[itemsetname], player.dimension, {x: x+1 ,y: y, z: z+1} )
+          mc.world.structureManager.place(ItemSetStructures[itemsetname], sender.dimension, {x: x+1 ,y: y, z: z+1} )
           sender.sendMessage(`§aLoaded item set ${itemsetname}`) 
         }
         else sender.sendMessage(`§c${itemsetname} is not an valid item set. Please try again`)
     }
-extension.addCommand(SSCommand);
 
 function SSCommandCallback(sender, args) {
     let { container, value} = args;
@@ -200,10 +215,17 @@ const MaxSS = {
     furnace:10,
 }
 if (ValidContainer === true && value <= MaxSS[container]) {
-    sender.sendMessage(`§aFor SS of ${value} in ${container} you need §l${SS[container][value]}`)
+    sender.sendMessage(`§aFor SS of ${value} in ${container} you need §l§2${SS[container][value]}`)
 }
 else sender.sendMessage('§cSS/continer is not valid. Please try again')
 }
+function UtilityItemsCommandCallback(sender, args) {
+    let {x, y, z} = sender.location
+    mc.world.structureManager.place('mystructure:usefulitems', sender.dimension, {x: x ,y: y-1, z: z})
+    sender.sendMessage('§aLoaded utility items')
+}
+
+
 
 
 
