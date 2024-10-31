@@ -34,7 +34,7 @@ const ItemSetStructures = {
     tmc:'',
     mixed:'',
     split:'mystructure:split item set',
-    nonstackable:'',
+    nonstackable:'mystructure:Nonstackable item set',
     bulk:''
 }
                 if (IsValidItemSet === true) {
