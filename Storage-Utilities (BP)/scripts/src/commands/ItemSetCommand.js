@@ -15,7 +15,6 @@ const ItemSetCommand = new Command({
     helpEntries: [ // Additional help entries that show up in the help command
      { usage: `itemset casual`, description: `Loads casual item set` }, // Description can be a string or RawMessage type.
      { usage: `itemset TMC`, description: `Loads TMC item set` },
-     { usage: `itemset mixed`, description: `Loads mixed item set` },
      { usage: `itemset split`, description: `Loads split item set` },
      { usage: `itemset nonstackable`, description: `Loads nonstackable item set` },
      { usage: `itemset bulk`, description: `Loads bulk item set` },
@@ -27,15 +26,14 @@ extension.addCommand(ItemSetCommand);
 function ItemSetCommandCallback(sender, args) {
     let { itemsetname } = args;
     let {x, y, z} = sender.location
-const ItemSetNames = new Set(['casual', 'tmc', 'mixed', 'split', 'nonstackable', 'bulk'])
-const IsValidItemSet = ItemSetNames.has(itemsetname)
+const ItemSetArray = ['casual', 'TMC', 'split', 'nonstackable', 'bulk']
+const IsValidItemSet = ItemSetArray.includes(itemsetname)
 const ItemSetStructures = {
-    casual:'',
-    tmc:'',
-    mixed:'',
-    split:'mystructure:split item set',
-    nonstackable:'mystructure:Nonstackable item set',
-    bulk:''
+    casual:'mystructure:casual_IS',
+    TMC:'mystructure:TMC_IS',
+    split:'mystructure:split_IS',
+    nonstackable:'mystructure:NSIS',
+    bulk:'mystructure:Bulk_IS'
 }
                 if (IsValidItemSet === true) {
           mc.world.structureManager.place(ItemSetStructures[itemsetname], sender.dimension, {x: x+1 ,y: y, z: z+1} )

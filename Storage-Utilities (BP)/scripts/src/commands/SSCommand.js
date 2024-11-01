@@ -22,22 +22,23 @@ extension.addCommand(SSCommand);
 function SSCommandCallback(sender, args) {
     let { container, value} = args;
     const HopperSS = {
-1:'1 item',
-2:'23 items',
-3:'46 items',
-4:'nonstackable + 5 items',
-5:'nonstackable + 28 items',
-6:'nonstackable + 51 items',
-7:'2 nonstackables + 10 items',
-8:'2 nonstackables + 32 items',
-9:'2 nonstackables + 55 items',
-10:'3 nonstackables + 14 items',
-11:'3 nonstackables + 37 items',
-12:'3 nonstackables + 60 items',
-13:'4 nonstackables + 19 items',
-14:'4 nonstackables + 43 items',
-15:'5 nonstackables'
-    }
+    1:'1 item',
+    2:'23 items',
+    3:'46 items',
+    4:'nonstackable + 5 items',
+    5:'nonstackable + 28 items',
+    6:'nonstackable + 51 items',
+    7:'2 nonstackables + 10 items',
+    8:'2 nonstackables + 32 items',
+    9:'2 nonstackables + 55 items',
+    10:'3 nonstackables + 14 items',
+    11:'3 nonstackables + 37 items',
+    12:'3 nonstackables + 60 items',
+    13:'4 nonstackables + 19 items',
+    14:'4 nonstackables + 43 items',
+    15:'5 nonstackables'  
+    } 
+
     const LecternSS = {
 1:'pages 1-2/30',
 2:'pages 3-4/30',
@@ -62,7 +63,6 @@ function SSCommandCallback(sender, args) {
 4:'4 pumpkin pies',
 5:'5 pumpkin pies',
 6:'6 pumpkin pies',
-7:'Not possible',
 8:'8 pumpkin pies'
     }
     const CrafterSS = {
@@ -132,8 +132,8 @@ function SSCommandCallback(sender, args) {
     pot:PotSS,
     furnace:FurnaceSS
 }
-const Containers = new Set(['hopper', 'lectern', 'composter', 'crafter', 'barrel', 'chest', 'pot', 'furnace'])
-const ValidContainer = Containers.has(container)
+const Containers = ['hopper', 'lectern', 'composter', 'crafter', 'barrel', 'chest', 'pot', 'furnace']
+const ValidContainer = Containers.includes(container)
 const MaxSS = {
     hopper:15,
     lectern:15,
@@ -144,6 +144,12 @@ const MaxSS = {
     pot:15,
     furnace:10,
 }
+
+    if (container === 'composter' && value === 7) {
+        sender.sendMessage('§cSS/container is not valid. Please try again')
+        return
+    } 
+
 if (ValidContainer === true && value <= MaxSS[container]) {
     sender.sendMessage(`§aFor SS of ${value} in ${container} you need §l§2${SS[container][value]}`)
 }
