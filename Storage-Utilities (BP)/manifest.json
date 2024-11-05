@@ -2,7 +2,7 @@
     "format_version": 2,
     "header": {
         "description": "An Canopy exstension  amied an storage tech",
-        "name": "Storage Utilities",
+        "name": "Storage Utilities V1.0.1",
         "uuid": "449dcd3f-e0a3-4217-9b0a-5b213f6b6cdd",
         "version": [0, 0, 1],
         "min_engine_version": [1,21,40]
