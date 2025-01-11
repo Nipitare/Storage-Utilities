@@ -4,6 +4,7 @@ import 'src/commands/UtilityItemsCommand'
 import 'src/commands/ItemSetCommand'
 import 'src/commands/BitGroupCommand'
 import 'src/commands/ItemSummonCommand'
+import 'src/commands/SummonCommand'
 
 //script events
 import 'src/scriptevents/ItemSummonCommand'
