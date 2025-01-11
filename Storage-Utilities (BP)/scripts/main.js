@@ -1,13 +1,16 @@
-// Commands
+//commands 
 import 'src/commands/SSCommand'
 import 'src/commands/UtilityItemsCommand'
 import 'src/commands/ItemSetCommand'
-import 'src/commands/BitGroupCommand'
 import 'src/commands/ItemSummonCommand'
 import 'src/commands/SummonCommand'
 
 //script events
 import 'src/scriptevents/ItemSummonCommand'
-// Config
-import 'config'
-import 'rule'
+
+//rules
+import 'src/rules/StorageUtilities'
+import 'src/rules/CreativeOnly'
+
+//other
+import 'config'
