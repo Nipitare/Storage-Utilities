@@ -2,20 +2,19 @@
 import {Command} from 'lib/canopy/CanopyExtension';
 import  extension from 'config'
 const SSCommand = new Command({
-    name: 'ss', // The name of the command
-    description: 'Tells you what items you need to make a specified SS for any given container.', // Shows up in the help command. Can be a string or RawMessage type.
-    usage: 'ss [container] [value]', // The usage of the command that shows up in the help command & when used incorrectly
-    callback: SSCommandCallback, // The function to run when the command is executed
-    // Optional:
+    name: 'ss',
+    description: 'Tells you what items you need to make a specified SS for any given container.',
+    usage: 'ss [container] [value]',
+    callback: SSCommandCallback,
     args: [
-        { type: 'string|number', name: 'container' }, // The arguments that the command takes. 'string|number' means it can be either a string or a number
-        { type: 'number', name: 'value' } // The arguments that the command takes. 'string|number' means it can be either a string or a number
+        { type: 'string|number', name: 'container' },
+        { type: 'number', name: 'value' }
     ],
-    contingentRules: ['StorageUtilities'], // Rules that must be true for the command to be enabled
-    adminOnly: false, // Whether the command can only be run by admins (users with the 'CanopyAdmin' tag)
-    helpEntries: [ // Additional help entries that show up in the help command
+    contingentRules: ['StorageUtilities'],
+    adminOnly: false,
+    helpEntries: [
     ],
-    helpHidden: false // Whether the command should be hidden from the help command.
+    helpHidden: false
 });
 extension.addCommand(SSCommand);
 

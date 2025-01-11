@@ -2,18 +2,16 @@ import * as mc from '@minecraft/server'
 import {Command} from 'lib/canopy/CanopyExtension';
 import  extension from 'config'
 const UtilityItemsCommand = new Command({
-    name: 'utilityitems', // The name of the command
-    description: 'Load utility items structure.', // Shows up in the help command. Can be a string or RawMessage type.
-    usage: 'utilityitems', // The usage of the command that shows up in the help command & when used incorrectly
-    callback: UtilityItemsCommandCallback, // The function to run when the command is executed
-    // Optional:
+    name: 'utilityitems',
+    description: 'Load utility items barrel.',
+    usage: 'utilityitems',
+    callback: UtilityItemsCommandCallback,
     args: [
     ],
-    contingentRules: ['StorageUtilities'], // Rules that must be true for the command to be enabled
-    adminOnly: false, // Whether the command can only be run by admins (users with the 'CanopyAdmin' tag)
-    helpEntries: [ // Additional help entries that show up in the help command
-    ],
-    helpHidden: false // Whether the command should be hidden from the help command.
+    contingentRules: ['StorageUtilities', 'creativeOnly'],
+    adminOnly: false,
+    helpEntries: [],
+    helpHidden: false
 });
 extension.addCommand(UtilityItemsCommand);
 
