@@ -9,7 +9,7 @@ const BetterSummonCommand = new Command({
         { type: 'string', name: 'entity' },
         { type: 'number', name: 'amount' }
     ],
-    contingentRules: ['StorageUtilities'], 
+    contingentRules: ['StorageUtilities', 'creativeOnly'], 
     adminOnly: false, 
     helpEntries: [],
     helpHidden: false

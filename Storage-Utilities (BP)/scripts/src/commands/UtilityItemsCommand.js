@@ -8,10 +8,9 @@ const UtilityItemsCommand = new Command({
     callback: UtilityItemsCommandCallback,
     args: [
     ],
-    contingentRules: ['StorageUtilities', 'CreativeOnly'],
+    contingentRules: ['StorageUtilities', 'creativeOnly'],
     adminOnly: false,
-    helpEntries: [
-    ],
+    helpEntries: [],
     helpHidden: false
 });
 extension.addCommand(UtilityItemsCommand);

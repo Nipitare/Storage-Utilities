@@ -9,7 +9,7 @@ const ItemSetCommand = new Command({
     args: [
         { type: 'string|number', name: 'itemsetname' }
     ],
-    contingentRules: ['StorageUtilities', 'CreativeOnly'],
+    contingentRules: ['StorageUtilities', 'creativeOnly'],
     adminOnly: false,
     helpEntries: [
      { usage: `itemset casual`, description: `Loads casual item set` },
