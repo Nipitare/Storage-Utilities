@@ -14,7 +14,7 @@ const ItemSummonCommand = new Command({
       { type: 'number', name: 'y' },
       { type: 'number', name: 'z' },
     ],
-    contingentRules: ['StorageUtilities'],
+    contingentRules: ['StorageUtilities','creativeOnly'],
     adminOnly: false,
     helpEntries: [
     ],
@@ -26,7 +26,6 @@ function ItemSummonCommandCallback(sender, args){
     let { item, amount, x, y, z } = args;
     const location = {x: x+0.5, y: y, z:z+0.5}
     sender.dimension.spawnItem(new ItemStack(item, amount), location);
-   // itemEntity.clearVerocity();
 };
 
 export { ItemSummonCommandCallback }
