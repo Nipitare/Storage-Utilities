@@ -2,7 +2,7 @@ import {Command} from 'lib/canopy/CanopyExtension';
 import  extension from 'config'
 const BetterSummonCommand = new Command({
     name: 'summon',
-Summons any amount (up to 1,000) of a specified entity',
+    description: 'Summons any amount (up to 1,000) of a specified entity',
     usage: 'summon [entity] [amount]',
     callback: BetterSummonCommandCallback,
     args: [
